@@ -237,7 +237,8 @@ const generateConfig = ({extensionPath, devMode=false, customOutputPath, analyze
     module: {
       rules: [
         {
-          test: /\.js$/,
+          // Include ts, tsx, js, and[ jsx files.
+          test: /\.(ts|js)x?$/,
           loader: 'babel-loader',
           exclude: [
             /node_modules\/(core-js|regenerator-runtime)/

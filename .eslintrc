@@ -1,7 +1,7 @@
 ---
 extends: "airbnb"
-plugins: ["react-hooks"]
-parser: "babel-eslint"
+plugins: ["react-hooks", "@typescript-eslint"]
+parser: "@typescript-eslint/parser"
 globals:
   page: true
   browser: true
@@ -38,7 +38,7 @@ rules:
   class-methods-use-this: off
   react/jsx-tag-spacing: ["error", { "closingSlash": "never", "beforeSelfClosing": "allow", "afterOpening": "never" }]
   react/forbid-prop-types: off
-  react/jsx-filename-extension: [1, { "extensions": [".js", ".jsx"] }]
+  react/jsx-filename-extension: [1, { "extensions": [".js", ".jsx", ".ts", ".tsx"] }]
   react/jsx-first-prop-new-line: off
   react/no-did-mount-set-state: off
   react/no-did-update-set-state: off
@@ -62,7 +62,8 @@ rules:
   prefer-destructuring: off
   implicit-arrow-linebreak: off
   jsx-quotes: off
-  no-use-before-define: ["error", { "functions": false }]
+  no-use-before-define: "off"  # note you must disable the base rule as it can report incorrect errors
+  "@typescript-eslint/no-use-before-define": ["error", { "functions": false }]
   no-return-await: off
 parserOptions:
   ecmaVersion: 6
