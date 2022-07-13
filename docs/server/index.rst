@@ -62,7 +62,8 @@ But if you _really_ want to implement your own server, then you only need to imp
 - serve the `index.html` file (and linked javascript bundles) which are created by `auspice build` _and_
 - handle the three GET requests detailed above
 
-(If you're interested, this is what we do with `nextstrain.org <https://nextstrain.org>`_, where only some of the pages use Auspice. You can see all the code behind that server [here](https://github.com/nextstrain/nextstrain.org).)
+.. note::
+   If you're interested, this is what we do with `nextstrain.org <https://nextstrain.org>`_, where only some of the pages use Auspice (`code <https://github.com/nextstrain/nextstrain.org>`_).
 
 
 Deploying via Heroku
@@ -70,10 +71,10 @@ Deploying via Heroku
 
 It should be simple to deploy a custom version of auspice to any server, but we have experience using `Heroku <https://heroku.com/>`_ apps for this.
 Deploying to Heroku is straightforward, but there are a few points to note:
-1. You must set the config var `HOST` to `0.0.0.0` for the app.
-1. You will need to either create a `Procfile` or a `npm run start` script which calls `auspice view` (or `npx auspice view` depending on how you implement auspice)
-1. Make sure the datasets to be served are either (a) included in your git repo or (b) downloaded by the heroku build pipeline.
-`We use option (b) <https://github.com/nextstrain/auspice/blob/master/package.json>`_ by specifing a npm script called `heroku-postbuild`.
+
+1. You must set the config var `HOST=0.0.0.0` for the app.
+2. You will need to either create a `Procfile` or a `npm run start` script which calls `auspice view` (or `npx auspice view` depending on how you implement auspice).
+3. Make sure the datasets to be served are either (a) included in your git repo or (b) downloaded by the heroku build pipeline. `We use option (b) <https://github.com/nextstrain/auspice/blob/master/package.json>`_ by specifing a npm script called `heroku-postbuild`.
 
 
 .. toctree::
